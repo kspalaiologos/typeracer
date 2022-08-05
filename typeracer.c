@@ -82,7 +82,7 @@ static void main_menu(struct game_settings * settings) {
         TEXT_BOX(6, 2, "Frequency:   ", "  (how quickly words appear)",
             sprintf(buf, "%06d", settings->freq); subst(buf, '0', '.'); addstr(buf))
         
-        TEXT_BOX(7, 3, "Dictionary:  ", "  (which dictionary to use)",
+        TEXT_BOX(7, 3, "Dictionary:  ", "",
             addnstr(settings->dictionaries[seldict], min(strlen(settings->dictionaries[seldict]), 20)))
         
         /* Draw OK/Quit buttons in the same row under the menu */
