@@ -47,6 +47,7 @@ static void curses_init() {
     cbreak();
     noecho();
     keypad(stdscr, TRUE);
+    curs_set(0);
 
     start_color();
 
@@ -66,6 +67,7 @@ static void curses_init() {
 }
 
 static void curses_end() {
+    curs_set(1);
     nocbreak();
     echo();
     keypad(stdscr, FALSE);

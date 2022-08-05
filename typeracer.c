@@ -209,6 +209,7 @@ static int game(struct game_settings * s, vector(char *) dict) {
     uint8_t * lanes = malloc(LINES - 2);
     vector(struct word_t) words = NULL;
     nodelay(stdscr, TRUE);
+    curs_set(1);
     while(lives > 0) {
         erase();
         /* 1. Repaint the status bar. */
@@ -322,6 +323,7 @@ static int game(struct game_settings * s, vector(char *) dict) {
         ticks++;
         usleep(5000);
     }
+    curs_set(0);
     nodelay(stdscr, FALSE);
     free(lanes);
     vector_free(words);
