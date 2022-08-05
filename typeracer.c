@@ -349,10 +349,7 @@ int main(void) {
         vector(char *) dictionary = NULL;
         FILE * input = fopen(s.dictionaries[s.dict_idx], "r");
         if(input == NULL) {
-            nocbreak();
-            echo();
-            keypad(stdscr, FALSE);
-            endwin();
+            curses_end();
             printf("Could not open the dictionary file: %s\n", s.dictionaries[s.dict_idx]);
             return 1;
         }
@@ -361,10 +358,7 @@ int main(void) {
             if(line[strlen(line) - 1] == '\n')
                 line[strlen(line) - 1] = 0;
             if(strlen(line) > 24) {
-                nocbreak();
-                echo();
-                keypad(stdscr, FALSE);
-                endwin();
+                curses_end();
                 printf("Dictionary word too long: %s in %s.\n", line, s.dictionaries[s.dict_idx]);
                 return 1;
             }
