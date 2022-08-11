@@ -1,6 +1,6 @@
 
 typeracer: typeracer.c
-	$(CC) $(CFLAGS) -o $@ $^ -lm -lncurses
+	$(CC) $(CFLAGS) -o $@ $< -lm -lncurses
 
 install:
 	install -v -m 755 typeracer /usr/bin
