@@ -30,7 +30,7 @@
 	do {                                                                      \
 		const size_t cv_sz = (count) * sizeof(*(vec)) + (sizeof(size_t) * 2); \
 		if (!(vec)) {                                                         \
-			size_t *cv_p = malloc(cv_sz);                                     \
+			size_t *cv_p = calloc(cv_sz, sizeof (void *));                                     \
 			assert(cv_p);                                                     \
 			(vec) = (void *)(&cv_p[2]);                                       \
 			_internal_veccap((vec), (count));                                 \
