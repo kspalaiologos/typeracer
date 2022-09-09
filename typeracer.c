@@ -83,7 +83,8 @@ static void main_menu(struct game_settings * settings) {
             sprintf(buf, "%06d", settings->freq); subst(buf, '0', '.'); addstr(buf))
         
         TEXT_BOX(7, 3, "Dictionary:  ", "",
-            addnstr(settings->dictionaries[seldict], min(strlen(settings->dictionaries[seldict]), 20)))
+            addnstr(settings->dictionaries[seldict], min(strlen(settings->dictionaries[seldict]), 20));
+            for(int i = 0; i < 20 - strlen(settings->dictionaries[seldict]); i++) addch(' '))
         
         /* Draw OK/Quit buttons in the same row under the menu */
         set_color(sel_id == 4 ? CLR_SEL : CLR_UNSEL);
