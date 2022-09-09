@@ -357,12 +357,14 @@ int main(void) {
         while(fgets(line, 32, input) != NULL) {
             if(line[strlen(line) - 1] == '\n')
                 line[strlen(line) - 1] = 0;
+            // skip long word but do not return
             if(strlen(line) > 24) {
-                curses_end();
-                printf("Dictionary word too long: %s in %s.\n", line, s.dictionaries[s.dict_idx]);
-                return 1;
+                //curses_end();
+                //printf("Dictionary word too long: %s in %s.\n", line, s.dictionaries[s.dict_idx]);
+                //return 1;
             }
-            vector_push_back(dictionary, strdup(line));
+            else
+                vector_push_back(dictionary, strdup(line));
         }
         while((status = game(&s, dictionary)) == 1)
             ;
